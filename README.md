@@ -2,7 +2,7 @@
 
 npm scripts fuzzy finder and runner
 
-## Prerequisites
+## Dependencies
 
 * [fzf](https://github.com/junegunn/fzf)
 * [jq](https://stedolan.github.io/jq/)
