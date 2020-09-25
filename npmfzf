@@ -1,0 +1,21 @@
+#!/bin/bash
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+if test -f package.json; then
+  entry=$(jq \
+    -r '.scripts | to_entries[] | "\"\(.key)\": \"\(.value)\""' \
+    package.json \
+    | fzf --height 5%)
+  script=$(echo $entry | rg -o "\"(\w+)\":" -r '$1')
+
+  if [[ -n $entry && -n $script ]]; then
+    echo -e "${GREEN}npm run $script${NC}"
+    npm run $script
+  fi
+else
+  echo -e "${RED}package.json not found${NC}"
+  exit 1
+fi
