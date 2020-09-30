@@ -2,6 +2,8 @@
 
 npm scripts fuzzy finder and runner
 
+<img src="https://raw.githubusercontent.com/kubejm/npmfzf/master/demo.gif" />
+
 ## Dependencies
 
 * [fzf](https://github.com/junegunn/fzf)
