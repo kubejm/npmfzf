@@ -9,7 +9,7 @@ if test -f package.json; then
     -r '.scripts | to_entries[] | "\"\(.key)\": \"\(.value)\""' \
     package.json \
     | fzf --height 5%)
-  script=$(echo $entry | rg -o "\"(\w+)\":" -r '$1')
+  script=$(echo $entry | rg -o "\"(.+)\": \"" -r '$1')
 
   if [[ -n $entry && -n $script ]]; then
     echo -e "${GREEN}npm run $script${NC}"
